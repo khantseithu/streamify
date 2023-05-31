@@ -19,6 +19,7 @@ const data = {
 const Player = () => {
   return (
     <div className="fixed bottom-0 bg-black w-full py-2 h-[80px] px-4">
+      {/* CURRENTLY PLAYING */}
       <div className="grid grid-cols-1 md:grid-cols-3">
         <div className="hidden md:flex w-full justify-start">
           <div className="flex items-center gap-x-4">
@@ -27,6 +28,7 @@ const Player = () => {
           </div>
         </div>
 
+        {/* CONTROL BUTTONS */}
         <div className="flex flex-col items-center gap-y-2 w-full max-w-[722px]">
           <div className="flex items-center gap-x-6">
             <AiFillStepBackward
@@ -48,6 +50,7 @@ const Player = () => {
           </div>
         </div>
 
+        {/* VOLUME CONTROL BUTTON */}
         <div className="hidden md:flex w-full justify-end pr-2">
           <div className="flex items-center gap-x-2 w-[120px]">
             <HiSpeakerWave className="cursor-pointer" size={25} />

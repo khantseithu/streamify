@@ -5,7 +5,7 @@ interface MediaItemProps {
   author: string;
   name: string;
   image?: string;
-  onClick: (id: string) => void;
+  onClick?: (id: string) => void;
 }
 
 const MediaItem: React.FC<MediaItemProps> = ({
