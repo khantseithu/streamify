@@ -1,4 +1,5 @@
 "use client";
+import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 import SongItem from "@/components/SongItem";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
@@ -48,18 +49,7 @@ const songs = [
 export default function Home() {
   return (
     <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
-      <div className="h-fit bg-gradient-to-b from-emerald-800 p-6">
-        <div className="w-full mb-6">
-          <div className="flex gap-x-2 items-center">
-            {/* back and forth buttons */}
-            <div className="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition cursor-pointer">
-              <RxCaretLeft className="text-white" size={25} />
-            </div>
-            <div className="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition cursor-pointer">
-              <RxCaretRight className="text-white" size={25} />
-            </div>
-          </div>
-        </div>
+      <Header>
         {/* Welcome message */}
         <div className="mb-2">
           <h1 className="text-white text-3xl font-semibold">Welcome Back!</h1>
@@ -69,7 +59,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </div>
+      </Header>
       <div className="mb-7 px-6">
         <div className="flex justify-between items-center">
           <h1 className="text-white text-2xl font-semibold">Newest Songs</h1>

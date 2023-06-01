@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/Header";
 import Playlist from "@/components/MediaItem";
 import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -14,17 +15,7 @@ const data = {
 const PlaylistId = () => {
   return (
     <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
-      <div className="h-fit bg-gradient-to-b from-emerald-800 p-6">
-        <div className="w-full mb-4">
-          <div className="flex gap-x-2 items-center">
-            <div className="rounded-full bg-black flex items-center justify-center cursor-pointer hover:opacity-75 transition">
-              <RxCaretLeft className="text-white" size={35} />
-            </div>
-            <div className="rounded-full bg-black flex items-center justify-center cursor-pointer hover:opacity-75 transition">
-              <RxCaretRight className="text-white" size={35} />
-            </div>
-          </div>
-        </div>
+      <Header>
         <div className="mt-20">
           <div className="flex flex-col md:flex-row items-center gap-x-5">
             <div className="relative h-32 w-32 lg:h-48 lg:w-48">
@@ -44,7 +35,7 @@ const PlaylistId = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Header>
       <div className="flex flex-col gap-y-2 w-full p-6">
         {/* DUMMY DATA */}
         <div className="flex items-center gap-x-4 w-full">
