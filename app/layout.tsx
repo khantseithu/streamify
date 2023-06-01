@@ -2,6 +2,7 @@ import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 import { Figtree } from "next/font/google";
 import Player from "@/components/Player";
+import ModalProvider from "./providers/ModalProvider";
 
 const figtree = Figtree({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={figtree.className}>
+        <ModalProvider />
         <Sidebar>{children}</Sidebar>
         <Player />
       </body>
