@@ -1,12 +1,12 @@
 "use client";
 
-import * as Dialog from '@radix-ui/react-dialog';
-import { IoMdClose } from 'react-icons/io';
+import * as Dialog from "@radix-ui/react-dialog";
+import { IoMdClose } from "react-icons/io";
 
-import useLoginModal from "@/app/hooks/useLoginModal";
+import useLoginModal from "@/hooks/useLoginModal";
 
-import Input from './Input';
-import Button from './Button';
+import Input from "./Input";
+import Button from "./Button";
 
 const LoginModal = () => {
   const loginModal = useLoginModal();
@@ -15,10 +15,14 @@ const LoginModal = () => {
     if (!open) {
       loginModal.onClose();
     }
-  }
+  };
 
   return (
-    <Dialog.Root open={loginModal.isOpen} defaultOpen={loginModal.isOpen} onOpenChange={onChange}>
+    <Dialog.Root
+      open={loginModal.isOpen}
+      defaultOpen={loginModal.isOpen}
+      onOpenChange={onChange}
+    >
       <Dialog.Portal>
         <Dialog.Overlay className="bg-neutral-900/90 backdrop-blur-sm fixed inset-0" />
         <Dialog.Content
@@ -42,7 +46,8 @@ const LoginModal = () => {
             bg-neutral-800 
             p-[25px] 
             focus:outline-none
-          ">
+          "
+        >
           <Dialog.Title className="text-xl text-center font-bold mb-4">
             Welcome back
           </Dialog.Title>
@@ -80,6 +85,6 @@ const LoginModal = () => {
       </Dialog.Portal>
     </Dialog.Root>
   );
-}
+};
 
 export default LoginModal;
