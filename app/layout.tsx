@@ -1,9 +1,10 @@
-import Sidebar from "@/components/Sidebar";
-import "./globals.css";
-import { Figtree } from "next/font/google";
 import Player from "@/components/Player";
-import ModalProvider from "./providers/ModalProvider";
+import Sidebar from "@/components/Sidebar";
 import SupabaseProvider from "@/providers/SupabaseProvider";
+import UserProvider from "@/providers/UserProvider";
+import { Figtree } from "next/font/google";
+import "./globals.css";
+import ModalProvider from "./providers/ModalProvider";
 
 const figtree = Figtree({ subsets: ["latin"] });
 
@@ -22,9 +23,11 @@ export default function RootLayout({
       <body className={figtree.className}>
         <ModalProvider />
         <SupabaseProvider>
-          <Sidebar>{children}</Sidebar>
+          <UserProvider>
+            <Sidebar>{children}</Sidebar>
+            <Player />
+          </UserProvider>
         </SupabaseProvider>
-        <Player />
       </body>
     </html>
   );
