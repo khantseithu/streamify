@@ -1,8 +1,7 @@
+import useAuthModal from "@/hooks/useAuthModal";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { twMerge } from "tailwind-merge";
 import Button from "./Button";
-import useLoginModal from "@/hooks/useLoginModal";
-import useRegisterModal from "@/hooks/useRegisterModal";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -10,8 +9,8 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ children, className }) => {
-  const loginModal = useLoginModal();
-  const registerModal = useRegisterModal();
+  const authModal = useAuthModal();
+
   return (
     <div
       className={twMerge(
@@ -36,14 +35,14 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         <div className="flex justify-between items-center gap-x-4">
           <div>
             <Button
-              onClick={registerModal.onOpen}
+              onClick={authModal.onOpen}
               className="bg-transparent text-neutral-300 font-medium"
             >
               Sign up
             </Button>
           </div>
           <div>
-            <Button onClick={loginModal.onOpen} className="bg-white px-6 py-2">
+            <Button onClick={authModal.onOpen} className="bg-white px-6 py-2">
               Log in
             </Button>
           </div>

@@ -1,30 +1,32 @@
-"use client";
-
 import * as Dialog from "@radix-ui/react-dialog";
 import { IoMdClose } from "react-icons/io";
 
-import useLoginModal from "@/hooks/useLoginModal";
+interface ModalProps {
+  isOpen: boolean;
+  onChange: (open: boolean) => void;
+  title: string;
+  description: string;
+  children: React.ReactNode;
+}
 
-import Input from "./Input";
-import Button from "./Button";
-
-const LoginModal = () => {
-  const loginModal = useLoginModal();
-
-  const onChange = (open: boolean) => {
-    if (!open) {
-      loginModal.onClose();
-    }
-  };
-
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onChange,
+  title,
+  description,
+  children,
+}) => {
   return (
-    <Dialog.Root
-      open={loginModal.isOpen}
-      defaultOpen={loginModal.isOpen}
-      onOpenChange={onChange}
-    >
+    <Dialog.Root open={isOpen} defaultOpen={isOpen} onOpenChange={onChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-neutral-900/90 backdrop-blur-sm fixed inset-0" />
+        <Dialog.Overlay
+          className="
+            bg-neutral-900/90 
+            backdrop-blur-sm 
+            fixed 
+            inset-0
+          "
+        />
         <Dialog.Content
           className="
             fixed 
@@ -48,17 +50,27 @@ const LoginModal = () => {
             focus:outline-none
           "
         >
-          <Dialog.Title className="text-xl text-center font-bold mb-4">
-            Welcome back
+          <Dialog.Title
+            className="
+              text-xl 
+              text-center 
+              font-bold 
+              mb-4
+            "
+          >
+            {title}
           </Dialog.Title>
-          <Dialog.Description className="mb-5 text-sm leading-normal text-center">
-            Login to your account.
+          <Dialog.Description
+            className="
+              mb-5 
+              text-sm 
+              leading-normal 
+              text-center
+            "
+          >
+            {description}
           </Dialog.Description>
-          <div className="flex flex-col gap-y-4 mb-8">
-            <Input placeholder="Email" />
-            <Input type="password" placeholder="Password" />
-          </div>
-          <Button>Login</Button>
+          <div>{children}</div>
           <Dialog.Close asChild>
             <button
               className="
@@ -87,4 +99,4 @@ const LoginModal = () => {
   );
 };
 
-export default LoginModal;
+export default Modal;
